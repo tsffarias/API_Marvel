@@ -18,7 +18,7 @@ class Controller_herois:
             else:
                 return self.requisicao_herois_csv()
         else:
-            print('Flag inválida')
+            print('Formato inválido')
 
     def requisicao_herois_json(self):
         resultado = self.model.requisicao_herois_marvel_json()
