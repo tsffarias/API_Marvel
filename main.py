@@ -24,12 +24,13 @@ if __name__ == '__main__':
     tprint("API: MARVEL".center(40))
     linhas()
 
-    flag = 'json'
+    resposta_usuario = input('Qual formato de dado você quer? (JSON ou CSV): ')
 
-    herois = View_herois(flag)
+    herois = View_herois(resposta_usuario)
     resposta = herois.resposta_herois()
 
-    if flag == 'json':
+    if resposta_usuario.lower() == 'json':
+        linhas()
         mostra_dados_herois(resposta)
 
 
