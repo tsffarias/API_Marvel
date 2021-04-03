@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src = "capa.jpg">
-</center>
+</p>
 
 # O projeto
 
@@ -15,8 +15,8 @@ A API que escolhemos para trabalhar foi a disponibilizada pela [Marvel](https://
 
 # Integrantes
 
-<center>
-<table>
+
+<table width = 600px  align='center'>
 <tr>
 <td><b>Felipe Batista</b><br>
 <a href="https://www.linkedin.com/in/felisouza/"><image src="./imagens/linkedIN.svg" width="25"/></a><a href = "https://www.linkedin.com/in/felisouza/"> in/felisouza </a>
@@ -25,9 +25,9 @@ A API que escolhemos para trabalhar foi a disponibilizada pela [Marvel](https://
 
 <td><b>Jênnifer Stéfani</b>
 <br>
-<a href=""><image src="./imagens/linkedIN.svg" width="25"/></a><a href = ""> in/ </a>
+<a href="https://www.linkedin.com/in/j%C3%AAnnifer-gama-908b9120a/"><image src="./imagens/linkedIN.svg" width="25"/></a><a href = "https://www.linkedin.com/in/j%C3%AAnnifer-gama-908b9120a/"> in/jêniffer-gama </a>
 <br>
-<a href="https://github.com/Felisouza"><image src="./imagens/github-icon.svg" width="25"/></a><a href=""></a>
+<a href="https://github.com/jenniferstefaniks"><image src="./imagens/github-icon.svg" width="25"/></a><a href="https://github.com/jenniferstefaniks"> jenniferstefaniks</a>
 
 <td><b>Michelle Lira</b>
 <br>
@@ -38,7 +38,7 @@ A API que escolhemos para trabalhar foi a disponibilizada pela [Marvel](https://
 </table>
 
 
-<table>
+<table align='center'>
 <td><b>Natalia Gomes </b>
 <br>
 <a href="https://www.linkedin.com/in/natalia-gomes-4542781b1"><image src="./imagens/linkedIN.svg" width="25"/></a><a href = "https://www.linkedin.com/in/natalia-gomes-4542781b1"> in/natalia-gomes</a>
@@ -51,13 +51,13 @@ A API que escolhemos para trabalhar foi a disponibilizada pela [Marvel](https://
 <br>
 <a href="https://github.com/tsffarias"><image src="./imagens/github-icon.svg" width="25"/></a><a href="https://github.com/tsffarias"> tsffarias</a>
 	</table>
-		</center>
+
 		
 		
 # Nosso projeto
 
-<center>
-<img src = 'fluxograma.jpg' width=500>
-</center>
+<p align="center">
+<img src = './imagens/fluxograma.gif' width=600px align='center'>
+<p>
 
 Texto sobre o que fizemos
