@@ -29,7 +29,7 @@ if __name__ == '__main__':
     herois = View_herois(resposta_usuario)
     resposta = herois.resposta_herois()
 
-    if resposta_usuario.lower() == 'json':
+    if resposta is not None and resposta_usuario.lower() == 'json':
         linhas()
         mostra_dados_herois(resposta)
 
