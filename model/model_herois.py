@@ -29,10 +29,14 @@ class Model_Herois():
         return autentica
 
 
+    
+    
     def requisicao_herois_marvel_json(self):
         dados_autenticacao = self.autenticacao_api_marvel()
         
         resposta = self.requisicao_api_marvel(dados_autenticacao)
+        
+        
         
         return self.cria_lista_herois(resposta.json())
 
