@@ -15,6 +15,8 @@ def mostra_dados_herois(lista_herois):
         print(f'Heroi ({contador})')
         print(f'Nome heroi: {heroi.nome}')
         print(f'Descrição: {heroi.descricao}')
+        print(f'Lista comics: {heroi.lista_comics}')
+        print(f'Lista series: {heroi.lista_series}')
         linhas()
         contador += 1
 

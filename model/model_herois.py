@@ -41,8 +41,18 @@ class Model_Herois():
         for heroi in json['data']['results']:
             nome_heroi = heroi['name']
             descricao_heroi = heroi['description']
-            heroi = Heroi(nome_heroi, descricao_heroi)
-            lista_herois.append(heroi)
+
+            heroi_dados = Heroi(nome_heroi, descricao_heroi)
+
+            # extraindo dados comics
+            for lista_comics_heroi in heroi['comics']['items']:
+                heroi_dados.set_lista_comics(lista_comics_heroi['name'])
+
+            # extraindo dados series
+            for lista_series_heroi in heroi['series']['items']:
+                heroi_dados.set_lista_series(lista_series_heroi['name'])
+
+            lista_herois.append(heroi_dados)
 
         return lista_herois
         
