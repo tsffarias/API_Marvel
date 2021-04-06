@@ -5,18 +5,12 @@ class Controller_herois:
     def __init__(self):
         self.model = Model_Herois()
 
-    def validacao_flag(self, flag):
-        if flag.lower() == 'json' or flag.lower() == 'csv':
-            return True
-        else:
-            return False
 
     def busca_herois(self, flag):
-        if self.validacao_flag(flag):
-            if flag.lower() == 'json':
-                return self.requisicao_herois_json()
-            else:
-                return self.requisicao_herois_csv()
+        if flag.lower() == 'json':
+            return self.requisicao_herois_json()
+        elif flag.lower() == 'csv':
+            return self.requisicao_herois_csv()
         else:
             print('Formato inválido')
 

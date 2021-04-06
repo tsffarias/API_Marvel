@@ -10,6 +10,7 @@ class Model_Herois():
     def __init__(self):
         self.url = 'http://gateway.marvel.com/v1/public/characters'
 
+
     
     def autenticacao_api_marvel(self):
         autentica = dict()
@@ -27,12 +28,25 @@ class Model_Herois():
         autentica["hash_md5"] = hash_md5
 
         return autentica
-    
+
+    def verificando_status_code(self, status):
+        if status == 401:
+            return [401, 'Status code: 401. O hash é inválido! ']
+        else:
+            return [200, 'Status Code: 200.  Tudo OK!']
+        
+
     def requisicao_herois_marvel_json(self):
         dados_autenticacao = self.autenticacao_api_marvel()
         
         resposta = self.requisicao_api_marvel(dados_autenticacao)
-        return self.cria_lista_herois(resposta.json())
+        status = self.verificando_status_code(resposta.status_code)
+        
+        if status[0] == 200:
+            print(status[1])
+            return self.cria_lista_herois(resposta.json())
+        else:
+            print(status[1])
 
     
     def cria_lista_herois(self, json):
