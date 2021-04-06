@@ -30,8 +30,14 @@ class Model_Herois():
         return autentica
 
     def verificando_status_code(self, status):
-        if status == 401:
-            return [401, 'Status code: 401. O hash é inválido! ']
+        if status == 409:
+            return [409, 'Status Code 409. Parametros de chave de validação ausente!.']
+        elif status == 401:
+            return [401, 'Status code: 401. Parametros(ts, hash, apikey) enviados estão invalidos!']
+        elif status == 405:
+            return [405, 'Status code: 405. Verbo HTTP não permitido!']
+        elif status == 403:
+            return [403, 'Status code: 403. Você não tem acesso a este terminal.']
         else:
             return [200, 'Status Code: 200.  Tudo OK!']
         
