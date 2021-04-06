@@ -10,6 +10,7 @@ class Model_Herois():
     def __init__(self):
         self.url = 'http://gateway.marvel.com/v1/public/characters'
 
+
     
     def autenticacao_api_marvel(self):
         autentica = dict()
@@ -28,13 +29,24 @@ class Model_Herois():
 
         return autentica
 
+    def verificando_status_code(self, status):
+        if status == 401:
+            return [401, 'Status code: 401. O hash é inválido! ']
+        else:
+            return [200, 'Status Code: 200.  Tudo OK!']
+        
 
     def requisicao_herois_marvel_json(self):
         dados_autenticacao = self.autenticacao_api_marvel()
         
         resposta = self.requisicao_api_marvel(dados_autenticacao)
+        status = self.verificando_status_code(resposta.status_code)
         
-        return self.cria_lista_herois(resposta.json())
+        if status[0] == 200:
+            print(status[1])
+            return self.cria_lista_herois(resposta.json())
+        else:
+            print(status[1])
 
     
     def cria_lista_herois(self, json):
@@ -43,8 +55,18 @@ class Model_Herois():
         for heroi in json['data']['results']:
             nome_heroi = heroi['name']
             descricao_heroi = heroi['description']
-            heroi = Heroi(nome_heroi, descricao_heroi)
-            lista_herois.append(heroi)
+
+            heroi_dados = Heroi(nome_heroi, descricao_heroi)
+
+            # extraindo dados comics
+            for lista_comics_heroi in heroi['comics']['items']:
+                heroi_dados.set_lista_comics(lista_comics_heroi['name'])
+
+            # extraindo dados series
+            for lista_series_heroi in heroi['series']['items']:
+                heroi_dados.set_lista_series(lista_series_heroi['name'])
+
+            lista_herois.append(heroi_dados)
 
         return lista_herois
         
