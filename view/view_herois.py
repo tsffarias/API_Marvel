@@ -19,6 +19,9 @@ class View_herois:
         if resultado is not None and self.flag.lower() == 'json':
             self.linhas()
             self.mostra_dados_herois(resultado)
+        elif resultado is not None and self.flag.lower() == 'csv': #Criei esse elif caso a flag seja CSV
+            self.linhas()
+            self.mostra_dados_herois(resultado)
         
     def mostra_dados_herois(self, lista_herois):
         contador = 1

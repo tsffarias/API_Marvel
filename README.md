@@ -1,5 +1,5 @@
 <p align="center">
-<img src = "capa.jpg">
+<img src = "./imagens/capa.jpg">
 </p>
 
 # O projeto
