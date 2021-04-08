@@ -8,7 +8,7 @@ class Heroi:
             self.descricao = 'No description available'
         else:
             self.descricao = descricao
-
+        
     def set_lista_comics(self, comic):
         self.lista_comics.append(comic)
     
@@ -17,3 +17,5 @@ class Heroi:
 
     def __str__(self):
         return f'Nome: {self.nome}, Descricao: {self.descricao}, Lista Comics: {self.lista_comics}, Lista Series: {self.lista_series}'
+
+
