@@ -6,7 +6,6 @@ class View_herois:
         self.controller = Controller_herois()
         self.flag = flag
 
-    
     def linhas(self):
         print('▞▚'* 70)
 
@@ -20,6 +19,9 @@ class View_herois:
     def resposta_herois(self):
         resultado = self.controller.busca_herois(self.flag)    
         if resultado is not None and self.flag.lower() == 'json':
+            self.linhas()
+            self.mostra_dados_herois(resultado)
+        elif resultado is not None and self.flag.lower() == 'csv':
             self.linhas()
             self.mostra_dados_herois(resultado)
         
@@ -53,7 +55,7 @@ class View_herois:
             self.linhas()
             contador += 1
 
-        
+
 
 
 	    

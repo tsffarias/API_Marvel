@@ -2,3 +2,4 @@ api_keys.py
 __pycache__
 venv/
 .vscode/
+marvel.csv

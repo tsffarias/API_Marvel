@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import time
 import hashlib
+import yaml
 import api_keys
 from .class_model.heroi import Heroi
 
@@ -11,7 +12,6 @@ class Model_Herois():
         self.url = 'http://gateway.marvel.com/v1/public/characters'
 
 
-    
     def autenticacao_api_marvel(self):
         autentica = dict()
 
@@ -70,31 +70,59 @@ class Model_Herois():
 
             heroi_dados = Heroi(nome_heroi, descricao_heroi)
 
-            # extraindo dados comics
+
             for lista_comics_heroi in heroi['comics']['items']:
                 heroi_dados.set_lista_comics(lista_comics_heroi['name'])
 
-            # extraindo dados series
+
             for lista_series_heroi in heroi['series']['items']:
                 heroi_dados.set_lista_series(lista_series_heroi['name'])
 
             lista_herois.append(heroi_dados)
 
         return lista_herois
+
+
+    def cria_herois_csv(self, csv):
         
+        lista_herois = list()
+        for heroi in csv:
+            nome_heroi = heroi['name']
+            descricao_heroi = heroi['description']
+            heroi_dados = Heroi(nome_heroi, descricao_heroi)
+            
 
-    def requisicao_herois_marvel_csv(self):
-        dados_autenticacao = self.autenticacao_api_marvel()
+            for lista_comics_heroi in heroi['comics']['items']:
+                heroi_dados.set_lista_comics(lista_comics_heroi['name'])
 
-        resposta = self.requisicao_api_marvel(dados_autenticacao)
-        dado_csv = self.converte_em_csv(resposta.content)
-        print(dado_csv)
-        #return dado_csv
+
+            for lista_series_heroi in heroi['series']['items']:
+                heroi_dados.set_lista_series(lista_series_heroi['name'])
+
+            lista_herois.append(heroi_dados)
+        
+        return lista_herois
         
     
-    def converte_em_csv(self, json):
-        dados = pd.read_json(json)
-        return dados.to_csv()
+    def requisicao_herois_marvel_csv(self):
+        dados_autenticacao = self.autenticacao_api_marvel()
+        
+        resposta = self.requisicao_api_marvel(dados_autenticacao)
+        dado_csv = self.salva_csv(resposta.content)
+        dado_csv = self.retorna_csv(dado_csv)
+        return self.cria_herois_csv(dado_csv)
+        
+    def salva_csv(self, json):
+        json = pd.read_json(json)
+        dados_csv = json.to_csv(r'./marvel.csv', sep=',')
+        return dados_csv
+
+    def retorna_csv(self, dados_csv):
+        dados_csv = pd.read_csv('marvel.csv', sep=',', usecols=['data'] )
+        dados_csv = dados_csv.loc[3]
+        dados_csv = dados_csv['data']
+        dados_csv = yaml.safe_load(dados_csv)
+        return dados_csv
 
     
     def requisicao_api_marvel(self, dados_autenticacao):
