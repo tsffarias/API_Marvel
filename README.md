@@ -15,7 +15,6 @@ A API que escolhemos para trabalhar foi a disponibilizada pela [Marvel](https://
 
 # Integrantes
 
-
 <table width = 600px  align='center'>
 <tr>
 <td><b>Felipe Batista</b><br>
@@ -44,20 +43,32 @@ A API que escolhemos para trabalhar foi a disponibilizada pela [Marvel](https://
 <a href="https://www.linkedin.com/in/natalia-gomes-4542781b1"><image src="./imagens/linkedIN.svg" width="25"/></a><a href = "https://www.linkedin.com/in/natalia-gomes-4542781b1"> in/natalia-gomes</a>
 <br>
 <a href="https://github.com/Natalia-oli"><image src="./imagens/github-icon.svg" width="25"/></a><a href="https://github.com/Natalia-oli"> Natalia-oli</a>
-<br>
+
 <td><b>Thiago Silva</b>
 <br>
 <a href="https://www.linkedin.com/in/thiagosilvafarias/"><image src="./imagens/linkedIN.svg" width="25"/></a><a href = "https://www.linkedin.com/in/thiagosilvafarias/"> in/thiagosilvafarias</a>
 <br>
 <a href="https://github.com/tsffarias"><image src="./imagens/github-icon.svg" width="25"/></a><a href="https://github.com/tsffarias"> tsffarias</a>
 	</table>
+	<br>
 
-		
-		
-# Nosso projeto
+# Estrutura do nosso projeto
+
+Para obter os dados da API Marvel o usuário entrará em contato com a View do nosso software. A View exibirá na tela duas perguntas:
+
+```
+"Digite a palavra referente ao formato escolhido: "
+"Informe a quantidade de herois desejada: "
+```
+A partir das escolhas do usuário a View chamará funções do Controller que, por sua vez, fará a ponte com o Model.
+
+É no Model onde são feitas as requisições para a API da Marvel. É nele que a chave de acesso é construída, através de bibliotecas e funções, para que consigamos puxar os dados em formato JSON. Na Model, também, que ocorre a formatação do arquivo para ser mostrado ao usuário.
+
+O Controller pega o arquivo feito pela Model, com as informações que o usuário deseja (quantidade e formato), e manda novamente para a View. Ela, a View, por sua vez formata o arquivo em uma lista e mostra para o usuário na tela o nome do herói, a descrição dele e quais as revistas em quadrinhos e séries ele aparece.
+
+Segue abaixo um modelo visual de como funciona nosso software.
 
 <p align="center">
 <img src = './imagens/fluxograma.gif' width=600px align='center'>
 <p>
 
-Texto sobre o que fizemos
