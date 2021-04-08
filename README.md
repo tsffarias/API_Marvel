@@ -60,15 +60,18 @@ Para obter os dados da API Marvel o usuário entrará em contato com a View do n
 "Digite a palavra referente ao formato escolhido: "
 "Informe a quantidade de herois desejada: "
 ```
+
 A partir das escolhas do usuário a View chamará funções do Controller que, por sua vez, fará a ponte com o Model.
 
-É no Model onde são feitas as requisições para a API da Marvel. É nele que a chave de acesso é construída, através de bibliotecas e funções, para que consigamos puxar os dados em formato JSON. Na Model, também, que ocorre a formatação do arquivo para ser mostrado ao usuário.
+É no Model onde são feitas as requisições para a API da Marvel. É nela que a chave de acesso é construída através de bibliotecas e funções, para que consigamos puxar os dados em formato JSON ou CSV.
 
-O Controller pega o arquivo feito pela Model, com as informações que o usuário deseja (quantidade e formato), e manda novamente para a View. Ela, a View, por sua vez formata o arquivo em uma lista e mostra para o usuário na tela o nome do herói, a descrição dele e quais as revistas em quadrinhos e séries ele aparece.
+Para acessar a API Marvel é preciso uma chave de acesso. A chave é composta pela timestamp, pelas chaves pública e privada, e pela hash. As chaves, pública e privada, são únicas e fornecidas ao usuário quando cadastrado um login e senha no site da API da Marvel. Por questões de segurança nossas chaves não estão dentro do repositório. Para que o usuário rode o programa é preciso criar o  arquivo apy_keys.py. O arquivo Python deve ter apenas duas variáveis: a public_key e a private_key. O arquivo será importado para o software.
+
+Após a autentificação e requisição o Controller pega o arquivo feito pela Model, com as informações que o usuário deseja (quantidade e formato), e manda novamente para a View. Ela, a View, por sua vez formata o arquivo em uma lista e mostra para o usuário na tela o nome do herói, a descrição dele e quais as revistas em quadrinhos e séries ele aparece.
 
 Segue abaixo um modelo visual de como funciona nosso software.
 
 <p align="center">
-<img src = './imagens/fluxograma.gif' width=600px align='center'>
+<img src = './imagens/fluxograma2.gif' width=600px align='center'>
 <p>
 
