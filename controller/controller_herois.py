@@ -5,27 +5,21 @@ class Controller_herois:
     def __init__(self):
         self.model = Model_Herois()
 
-    def validacao_flag(self, flag):
-        if flag.lower() == 'json' or flag.lower() == 'csv':
-            return True
-        else:
-            return False
 
-    def busca_herois(self, flag):
-        if self.validacao_flag(flag):
-            if flag.lower() == 'json':
-                return self.requisicao_herois_json()
-            else:
-                return self.requisicao_herois_csv()
+    def busca_herois(self, flag, qtd_herois):
+        if flag.lower() == 'json':
+            return self.requisicao_herois_json(qtd_herois)
+        elif flag.lower() == 'csv':
+            return self.requisicao_herois_csv(qtd_herois)
         else:
             print('Formato inválido')
 
-    def requisicao_herois_json(self):
-        resultado = self.model.requisicao_herois_marvel_json()
+    def requisicao_herois_json(self, qtd_herois):
+        resultado = self.model.requisicao_herois_marvel_json(qtd_herois)
         return resultado
 
-    def requisicao_herois_csv(self):
-        resultado = self.model.requisicao_herois_marvel_csv()
+    def requisicao_herois_csv(self, qtd_herois):
+        resultado = self.model.requisicao_herois_marvel_csv(qtd_herois)
         return resultado
 
 
