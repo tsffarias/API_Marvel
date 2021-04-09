@@ -18,7 +18,7 @@ class View_herois:
         self.flag = flag
 
     def resposta_herois(self):
-        resultado = self.controller.busca_herois(self.flag, qtd_herois)    
+        resultado = self.controller.busca_herois(self.flag, self.qtd_herois)    
         if resultado is not None and self.flag.lower() == 'json':
             self.linhas()
             self.mostra_dados_herois(resultado)
