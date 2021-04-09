@@ -46,7 +46,7 @@ if __name__ == '__main__':
         texto()
         espaco()
 
-        resposta_usuario = input('❐ Digite a palavra referente ao formato escolhido: ')
+        resposta_usuario = input('❐ Digite a palavra referente ao formato escolhido (JSON ou CSV): ')
         padrao_resposta_formato = resposta_usuario.upper()
         if (padrao_resposta_formato != 'JSON') and (padrao_resposta_formato != 'CSV'):
             resposta_usuario = input("Opção inválida. Digite JSON ou CSV:")
