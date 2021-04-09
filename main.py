@@ -51,9 +51,15 @@ if __name__ == '__main__':
         if (padrao_resposta_formato != 'JSON') and (padrao_resposta_formato != 'CSV'):
             resposta_usuario = input("Opção inválida. Digite JSON ou CSV:")
 
-        resposta_usuario_qtd_herois = int(input('❐ informe a quantidade de herois desejada:'))
-        herois = View_herois(resposta_usuario)
-        herois.resposta_herois()
+
+        qtd_herois = int(input('❐ informe a quantidade de herois desejada (1 a 99): '))
+        if qtd_herois >= 1 and qtd_herois <= 99:
+            herois = View_herois(resposta_usuario, qtd_herois)
+            resposta_qtd = herois.resposta_herois()
+        else:
+            print('Quantidade não suportada. Digite um número entre 1 e 100. ')
+            print('Tente novamente.')
+
 
         espaco()
         resposta_nova_solicitacao = int(input('Digite (1), se desejar fazer uma nova consulta e (2) caso deseje finalizar:'))

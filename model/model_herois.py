@@ -48,10 +48,10 @@ class Model_Herois():
             return [200, 'Status Code: 200.  Tudo OK!']
         
 
-    def requisicao_herois_marvel_json(self):
+    def requisicao_herois_marvel_json(self, qtd_herois):
         dados_autenticacao = self.autenticacao_api_marvel()
         
-        resposta = self.requisicao_api_marvel(dados_autenticacao)
+        resposta = self.requisicao_api_marvel(dados_autenticacao, qtd_herois)
         status = self.verificando_status_code(resposta.status_code)
         
         if status[0] == 200:
@@ -104,10 +104,10 @@ class Model_Herois():
         return lista_herois
         
     
-    def requisicao_herois_marvel_csv(self):
+    def requisicao_herois_marvel_csv(self, qtd_herois):
         dados_autenticacao = self.autenticacao_api_marvel()
         
-        resposta = self.requisicao_api_marvel(dados_autenticacao)
+        resposta = self.requisicao_api_marvel(dados_autenticacao, qtd_herois)
         dado_csv = self.salva_csv(resposta.content)
         dado_csv = self.retorna_csv(dado_csv)
         return self.cria_herois_csv(dado_csv)
@@ -125,7 +125,7 @@ class Model_Herois():
         return dados_csv
 
     
-    def requisicao_api_marvel(self, dados_autenticacao):
-        return requests.get(f'{self.url}?ts={dados_autenticacao["timestamp"]}&apikey={dados_autenticacao["chave_publica"]}&hash={dados_autenticacao["hash_md5"]}')
+    def requisicao_api_marvel(self, dados_autenticacao, qtd_herois):
+        return requests.get(f'{self.url}?limit={qtd_herois}&ts={dados_autenticacao["timestamp"]}&apikey={dados_autenticacao["chave_publica"]}&hash={dados_autenticacao["hash_md5"]}')
 
 

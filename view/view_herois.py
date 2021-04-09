@@ -2,9 +2,10 @@ from controller.controller_herois import Controller_herois
 
 class View_herois:
 
-    def __init__(self, flag='json'):
+    def __init__(self, flag='json', qtd_herois=20):
         self.controller = Controller_herois()
         self.flag = flag
+        self.qtd_herois = qtd_herois
 
     def linhas(self):
         print('▞▚'* 70)
@@ -17,7 +18,7 @@ class View_herois:
         self.flag = flag
 
     def resposta_herois(self):
-        resultado = self.controller.busca_herois(self.flag)    
+        resultado = self.controller.busca_herois(self.flag, qtd_herois)    
         if resultado is not None and self.flag.lower() == 'json':
             self.linhas()
             self.mostra_dados_herois(resultado)
